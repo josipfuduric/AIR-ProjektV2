@@ -15,5 +15,5 @@ interface IMyAPI {
     @FormUrlEncoded
     @POST("login.php")
 
-    fun getUserByKorisnickoImeAndPassword(@Field("KorisnickoIme") KorisnickoIme:String,@Field("Lozinka") Lozinka:String):Call<ApiResponse>
+    fun storeUser(@Field("KorisnickoIme") KorisnickoIme:String, @Field("Lozinka") Lozinka:String):Call<ApiResponse>
 }

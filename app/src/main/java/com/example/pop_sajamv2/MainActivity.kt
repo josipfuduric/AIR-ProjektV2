@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun authenticateUser(KorisnickoIme: String, Lozinka: String) {
-        mService.getUserByKorisnickoImeAndPassword(KorisnickoIme,Lozinka ).enqueue(object: Callback<ApiResponse>{
+        mService.storeUser(KorisnickoIme,Lozinka ).enqueue(object: Callback<ApiResponse>{
             override fun onFailure(call: Call<ApiResponse>, t: Throwable) {
                 Toast.makeText(this@MainActivity,t!!.message,Toast.LENGTH_SHORT).show()
             }
