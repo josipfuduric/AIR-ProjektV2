@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onResponse(call: Call<ApiResponse>, response: Response<ApiResponse>) {
-                if(response!!.body()!!.STATUS)
+                if(!response!!.body()!!.STATUS)
                     Toast.makeText(this@MainActivity,response!!.body()!!.STATUSMESSAGE,Toast.LENGTH_SHORT).show()
                 else
                     Toast.makeText(this@MainActivity,"Uspjesna prijava",Toast.LENGTH_SHORT).show()
