@@ -10,12 +10,12 @@ import com.google.gson.Gson
 
 object RetrofitClient{
     private var retrofit:Retrofit?=null
-    var gson = GsonBuilder()
+    /*var gson = GsonBuilder()
         .setLenient()
-        .create()
+        .create()*/
     fun getClient(baseUrl:String):Retrofit{
         if(retrofit == null){
-            retrofit = Retrofit.Builder().baseUrl(baseUrl).addConverterFactory(GsonConverterFactory.create(gson)).build()
+            retrofit = Retrofit.Builder().baseUrl(baseUrl).addConverterFactory(GsonConverterFactory.create()).build()
         }
         return retrofit!!
     }

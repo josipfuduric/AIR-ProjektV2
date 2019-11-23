@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.pop_sajamv2.Common.Common
-import com.example.pop_sajamv2.Model.Api
+import com.example.pop_sajamv2.Model.ApiResponse
 import com.example.pop_sajamv2.Remote.IMyAPI
 import kotlinx.android.synthetic.main.activity_registraacija.*
 import retrofit2.Call
@@ -25,16 +25,16 @@ class Registraacija : AppCompatActivity() {
     }
 
     private fun createNewUser(KorisnickoIme: String, Lozinka: String, email: String, ime: String, prezime: String, tipKorisnika: String) {
-        mService.registerUser(KorisnickoIme,Lozinka,ime, prezime, email, tipKorisnika).enqueue(object:Callback<Api>{
-            override fun onFailure(call: Call<Api>, t: Throwable) {
+        mService.registerUser(ime, prezime,Lozinka, email,KorisnickoIme).enqueue(object:Callback<ApiResponse>{
+            override fun onFailure(call: Call<ApiResponse>, t: Throwable) {
                 Toast.makeText(this@Registraacija,t!!.message, Toast.LENGTH_SHORT).show()
             }
 
-            override fun onResponse(call: Call<Api>, response: Response<Api>) {
-                if(response!!.body()!!.error)
-                    Toast.makeText(this@Registraacija,response!!.body()!!.error_msg,Toast.LENGTH_SHORT).show()
+            override fun onResponse(call: Call<ApiResponse>, response: Response<ApiResponse>) {
+                if(response!!.body()!!.STATUS)
+                    Toast.makeText(this@Registraacija,response!!.body()!!.STATUSMESSAGE,Toast.LENGTH_SHORT).show()
                 else{
-                    Toast.makeText(this@Registraacija,"Uspjesna registracija"+response.body()!!.uid,Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@Registraacija,"Uspjesna registracija",Toast.LENGTH_SHORT).show()
                     finish()
                 }
 
