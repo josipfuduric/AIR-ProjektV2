@@ -1,16 +1,13 @@
 package com.example.pop_sajamv2
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.pop_sajamv2.Common.Common
 import com.example.pop_sajamv2.Model.ApiResponse
 import com.example.pop_sajamv2.Remote.IMyAPI
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_main.KorisnickoIme
-import kotlinx.android.synthetic.main.activity_main.Lozinka
-import kotlinx.android.synthetic.main.activity_main.registracijaButton
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
